@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Derivadas Paso a Paso</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nerdamer/1.1.10/nerdamer.core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nerdamer/1.1.10/Calculus.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #003399;
+    }
+
+    label, input, button {
+      font-size: 18px;
+      display: block;
+      margin: 10px auto;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    button {
+      background-color: #003399;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .output {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0px 0px 10px #ccc;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .derivada {
+      color: #0066cc;
+      font-weight: bold;
+    }
+
+    .procedimiento {
+      color: #009933;
+      font-style: italic;
+    }
+
+    .resultado {
+      color: #cc0000;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    code {
+      background: #eee;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧮 Derivadas Paso a Paso (Logaritmos, Cocientes, Límites)</h1>
+
+  <label for="funcion">Escribe una función (ej: ln(x)/x o log(x^2)):</label>
+  <input type="text" id="funcion" value="ln(x)/x">
+  <button onclick="resolverDerivada()">Derivar paso a paso</button>
+
+  <div class="output" id="salida">
+    <!-- Resultado aquí -->
+  </div>
+
+  <script>
+    function resolverDerivada() {
+      const entrada = document.getElementById("funcion").value;
+      const salida = document.getElementById("salida");
+
+      try {
+        // Paso 1: Mostrar función original
+        const derivada = nerdamer(`diff(${entrada}, x)`).toString();
+        const simplificada = nerdamer(`${derivada}`).toTeX();
+
+        salida.innerHTML = `
+          <p class="derivada">🔹 Función: <code>f(x) = ${entrada}</code></p>
+
+          <p class="procedimiento">📘 Paso 1: Identificamos la forma de la función (logaritmo, cociente, etc.).</p>
+
+          <p class="procedimiento">📗 Paso 2: Aplicamos la regla de derivación correspondiente.</p>
+
+          <p class="procedimiento">📘 Paso 3: Derivamos usando cálculo simbólico.</p>
+
+          <p class="derivada">🧠 Derivada obtenida: <code>f'(x) = ${derivada}</code></p>
+
+          <p class="procedimiento">📗 Paso 4: Simplificamos la expresión.</p>
+
+          <p class="resultado">✅ Resultado final: <code>f'(x) = ${simplificada}</code></p>
+        `;
+      } catch (error) {
+        salida.innerHTML = `<p style="color:red;">⚠️ Error: Verifica que tu función esté bien escrita.</p>`;
+      }
+    }
+  </script>
+
+</body>
+</html>
