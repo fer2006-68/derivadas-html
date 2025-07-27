@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Derivadas y Límites - Paso a Paso</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 30px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333399;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .output {
+      margin-top: 30px;
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .derivada {
+      color: #0066cc; /* Azul */
+      font-weight: bold;
+    }
+
+    .procedimiento {
+      color: #009933; /* Verde */
+      font-style: italic;
+    }
+
+    .resultado {
+      color: #cc0000; /* Rojo */
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    code {
+      background-color: #eee;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Derivadas y Límites - Paso a Paso</h1>
+
+  <label for="funcion">Ejemplo de función:</label>
+  <input type="text" id="funcion" value="f(x) = ln(x)/x">
+
+  <button onclick="mostrarResolucion()">Resolver</button>
+
+  <div class="output" id="resultado">
+    <!-- Aquí aparece el resultado -->
+  </div>
+
+  <script>
+    function mostrarResolucion() {
+      const funcion = document.getElementById('funcion').value;
+      const resultadoDiv = document.getElementById('resultado');
+
+      resultadoDiv.innerHTML = `
+        <p class="derivada">🔹 Derivar la función: <code>${funcion}</code></p>
+
+        <p class="procedimiento">Paso 1: Identificamos que es un cociente de funciones: ln(x) / x.</p>
+        <p class="procedimiento">Paso 2: Aplicamos la regla del cociente:</p>
+        <p class="procedimiento">Si f(x) = u/v, entonces f'(x) = (u'v - uv') / v²</p>
+        <p class="procedimiento">Donde u = ln(x) y v = x</p>
+        <p class="procedimiento">u' = 1/x y v' = 1</p>
+        <p class="procedimiento">Sustituyendo: f'(x) = ( (1/x)(x) - (ln(x))(1) ) / x²</p>
+        <p class="procedimiento">f'(x) = (1 - ln(x)) / x²</p>
+
+        <p class="resultado">✅ Resultado final: <strong>f'(x) = (1 - ln(x)) / x²</strong></p>
+
+        <hr>
+
+        <p class="derivada">🔹 Ahora, evaluamos el límite de f(x) = ln(x)/x cuando x → 0⁺</p>
+        <p class="procedimiento">Paso 1: Evaluamos el comportamiento de ln(x) cerca de 0⁺.</p>
+        <p class="procedimiento">ln(x) → -∞ y x → 0⁺</p>
+        <p class="procedimiento">Entonces ln(x)/x → -∞</p>
+
+        <p class="resultado">⚠️ El límite cuando x → 0⁺ de ln(x)/x es <strong>-∞</strong>, lo cual muestra una discontinuidad.</p>
+      `;
+    }
+  </script>
+</body>
+</html>
