@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Derivadas Paso a Paso</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5ff;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #2a2a99;
+    }
+    .derivada {
+      color: #3366cc;
+      font-weight: bold;
+    }
+    .paso {
+      color: #2e7d32;
+      margin-left: 20px;
+    }
+    .resultado {
+      color: #c62828;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+    .ejercicio {
+      background: #ffffff;
+      border: 1px solid #cccccc;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📘 Derivadas Paso a Paso</h1>
+
+  <div class="ejercicio">
+    <div class="derivada">Ejercicio: f(x) = ln(√x + 2)</div>
+    
+    <div class="paso">Paso 1: Aplicamos la derivada de ln(u): f'(x) = 1/u · u'</div>
+    <div class="paso">Paso 2: u = √x + 2 = (x + 2)<sup>1/2</sup></div>
+    <div class="paso">Paso 3: Derivada de u: u' = (1/2)(x + 2)<sup>-1/2</sup></div>
+    <div class="paso">Paso 4: Sustituimos en la fórmula:</div>
+    <div class="paso">f'(x) = 1 / (x + 2)<sup>1/2</sup> · (1/2)(x + 2)<sup>-1/2</sup></div>
+    
+    <div class="resultado">f'(x) = 1 / [2(x + 2)]</div>
+  </div>
+
+  <div class="ejercicio">
+    <div class="derivada">Ejercicio: f(x) = (2x³ - x)<sup>4</sup></div>
+
+    <div class="paso">Paso 1: Aplicamos la regla de la cadena: f'(x) = 4(2x³ - x)³ · (6x² - 1)</div>
+    <div class="paso">Paso 2: Derivamos el interior: d/dx(2x³ - x) = 6x² - 1</div>
+    
+    <div class="resultado">f'(x) = 4(2x³ - x)³(6x² - 1)</div>
+  </div>
+
+  <div class="ejercicio">
+    <div class="derivada">Ejercicio: f(x) = (x² + 3x) / (x + 1)</div>
+
+    <div class="paso">Paso 1: Regla del cociente: f'(x) = [ (x² + 3x)'·(x + 1) - (x² + 3x)·(x + 1)' ] / (x + 1)²</div>
+    <div class="paso">Paso 2: Derivamos numerador y denominador: (x² + 3x)' = 2x + 3, (x + 1)' = 1</div>
+    <div class="paso">Paso 3: f'(x) = (2x + 3)(x + 1) - (x² + 3x)(1) / (x + 1)²</div>
+    <div class="paso">Paso 4: f'(x) = (2x² + 2x + 3x + 3 - x² - 3x) / (x + 1)²</div>
+    
+    <div class="resultado">f'(x) = (x² + 2x + 3) / (x + 1)²</div>
+  </div>
+
+</body>
+</html>
