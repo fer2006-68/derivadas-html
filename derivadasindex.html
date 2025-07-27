@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Derivada paso a paso</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      padding: 30px;
+    }
+    .contenedor {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 0px 10px #ccc;
+      max-width: 700px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      color: #003366;
+    }
+    .paso {
+      color: #008000;
+      margin-bottom: 10px;
+    }
+    .formula {
+      color: #0066cc;
+      font-weight: bold;
+    }
+    .resultado {
+      color: #cc0000;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    code {
+      background: #eee;
+      padding: 4px 6px;
+      border-radius: 5px;
+      display: inline-block;
+      margin: 4px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="contenedor">
+  <h2>Derivada paso a paso: f(x) = (x² + 3x) / (x + 1)</h2>
+
+  <p class="paso">📘 Paso 1: Identificamos que es un cociente de funciones</p>
+  <p class="paso">📗 Aplicamos la regla del cociente: 
+  <br><code>f'(x) = (u'v - uv') / v²</code>
+  <br>Donde: u = x² + 3x y v = x + 1</p>
+
+  <p class="paso">📘 Paso 2: Derivamos cada parte:</p>
+  <p><code>u' = d/dx(x² + 3x) = 2x + 3</code></p>
+  <p><code>v' = d/dx(x + 1) = 1</code></p>
+
+  <p class="paso">📘 Paso 3: Sustituimos en la fórmula:</p>
+  <p><code>f'(x) = [(2x + 3)(x + 1) - (x² + 3x)(1)] / (x + 1)²</code></p>
+
+  <p class="paso">📘 Paso 4: Desarrollamos el numerador:</p>
+  <p><code>(2x + 3)(x + 1) = 2x² + 2x + 3x + 3 = 2x² + 5x + 3</code></p>
+  <p><code>(x² + 3x)(1) = x² + 3x</code></p>
+  <p><code>Numerador: 2x² + 5x + 3 - (x² + 3x) = x² + 2x + 3</code></p>
+
+  <p class="resultado">✅ Resultado final:
+  <br><code>f'(x) = (x² + 2x + 3) / (x + 1)²</code></p>
+</div>
+
+</body>
+</html>
