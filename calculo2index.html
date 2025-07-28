@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Derivada por Definición - Paso a Paso</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      padding: 20px;
+      color: #222;
+    }
+    .step { margin-bottom: 12px; }
+    .blue { color: #2a4d9b; font-weight: bold; }
+    .green { color: #228B22; font-weight: bold; }
+    .red { color: #B22222; font-weight: bold; }
+    canvas { background: #fff; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+
+  <h2>📘 Derivada de <span class="blue">f(x) = x²</span> usando definición con h</h2>
+
+  <div class="step"><span class="blue">1)</span> Fórmula de la derivada por definición:</div>
+  <div class="step">f'(x) = <span class="red">lim</span><sub>h→0</sub> [f(x+h) − f(x)] / h</div>
+
+  <div class="step"><span class="blue">2)</span> Sustituyendo f(x) = x²:</div>
+  <div class="step">f'(x) = <span class="red">lim</span><sub>h→0</sub> [(x + h)² − x²] / h</div>
+
+  <div class="step"><span class="blue">3)</span> Expandiendo el binomio:</div>
+  <div class="step">= <span class="green">(x² + 2xh + h² − x²)</span> / h</div>
+
+  <div class="step"><span class="blue">4)</span> Simplificando:</div>
+  <div class="step">= <span class="green">(2xh + h²)</span> / h</div>
+
+  <div class="step"><span class="blue">5)</span> Factorizando h:</div>
+  <div class="step">= <span class="green">h(2x + h)</span> / h</div>
+
+  <div class="step"><span class="blue">6)</span> Cancelando h:</div>
+  <div class="step">= <span class="green">2x + h</span></div>
+
+  <div class="step"><span class="blue">7)</span> Tomando el límite cuando h → 0:</div>
+  <div class="step">f'(x) = <span class="red">2x</span></div>
+
+  <h3>🧮 Ejemplo: f'(1) = 2(1) = 2</h3>
+
+  <h3>📈 Gráfica de f(x) = x² y la tangente en x = 1</h3>
+  <canvas id="graph" width="600" height="400"></canvas>
+
+  <script>
+    const ctx = document.getElementById('graph').getContext('2d');
+
+    const xValues = [];
+    const yValues = [];
+    for (let x = -5; x <= 5; x += 0.1) {
+      xValues.push(x);
+      yValues.push(x * x);
+    }
+
+    const tangentX = [];
+    const tangentY = [];
+    const x0 = 1;
+    const y0 = x0 * x0;
+    const slope = 2 * x0; // Derivada en x=1
+
+    for (let x = 0; x <= 2; x += 0.1) {
+      tangentX.push(x);
+      tangentY.push(slope * (x - x0) + y0);
+    }
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: xValues,
+        datasets: [
+          {
+            label: 'f(x) = x²',
+            data: yValues,
+            borderColor: '#2a4d9b',
+            fill: false,
+            tension: 0.1
+          },
+          {
+            label: 'Tangente en x = 1',
+            data: tangentY,
+            borderColor: '#B22222',
+            fill: false,
+            tension: 0.1,
+            borderDash: [5, 5]
+          }
+        ]
+      },
+      options: {
+        scales: {
+          x: { title: { display: true, text: 'x' }},
+          y: { title: { display: true, text: 'f(x)' }}
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
